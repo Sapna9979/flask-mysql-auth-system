@@ -1,0 +1,36 @@
+{% extends 'app.html' %}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="card shadow-lg p-5" style="max-width: 700px; margin: auto; border-radius: 15px;">
+    <h2 class="text-center mb-4">Welcome to Your Dashboard</h2>
+
+    {% if user %}
+      <!-- User Information Section -->
+      <div class="text-center mb-4">
+        
+        
+        <!-- Personalized Greeting -->
+        <p class="lead">Hello, <strong>{{ user[1] }}</strong>!</p>
+        <p>Welcome back to your account dashboard.</p>
+      </div>
+
+      <!-- User Details List -->
+      <ul class="list-group list-group-flush mb-4">
+        <li class="list-group-item"><strong>Name:</strong> {{ user[1] }}</li>
+        <li class="list-group-item"><strong>Email:</strong> {{ user[2] }}</li>
+        
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="d-flex justify-content-center mb-3">
+       
+        <a href="/logout" class="btn btn-danger"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
+      </div>
+    {% else %}
+      <p class="text-center">Please <a href="/login" class="text-decoration-none">login</a> to view your dashboard.</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
